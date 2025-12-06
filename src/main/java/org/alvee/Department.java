@@ -9,6 +9,7 @@ public class Department {
     private String departmentId;
     @Setter
     private String departmentName;
+
     private static int nextId = 1;
 
     /**
