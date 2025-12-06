@@ -19,12 +19,14 @@ public class Department {
      * @param departmentName the name to validate
      * @return return true if the name only contains letters or space, otherwise return false
      */
-    static boolean isDepartmentNameValid(String departmentName) {
+    public static boolean isDepartmentNameValid(String departmentName) {
         if (departmentName == null || departmentName.isEmpty()) {
             return false;
         }
+
         for (int i = 0; i <departmentName.length(); i++) {
             char c = departmentName.charAt(i);
+
             if (c == ' ') {
                 continue;
             }
@@ -33,6 +35,7 @@ public class Department {
             }
             return false;
         }
+
         return true;
     }
 
