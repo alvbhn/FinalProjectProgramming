@@ -1,14 +1,19 @@
 package org.alvee;
 
+import lombok.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@EqualsAndHashCode
+@Getter
+@Setter
 public class Student {
     private String studentId;
     private String studentName;
     private Gender gender;
     private Address address;
     private Department department;
-    private ArrayList<Course> registeredCourses;
+    private List<Course> registeredCourses;
 
     private static int nextId = 1;
 
@@ -20,9 +25,8 @@ public class Student {
         if (course == null || registeredCourses.contains(course)) {
             return false;
         }
-
         registeredCourses.add(course);
-
+        course.getRegisteredStudents().add(this);
     }
 
 
