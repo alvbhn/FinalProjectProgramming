@@ -11,6 +11,13 @@ public class Department {
     private String departmentName;
     private static int nextId = 1;
 
+    /**
+     * checks if a department name is valid or not
+     * a department name should only contain letters or space
+     * and should not be null or empty
+     * @param departmentName the name to validate
+     * @return return true if the name only contains letters or space, otherwise return false
+     */
     static boolean isDepartmentNameValid(String departmentName) {
         if (departmentName == null || departmentName.isEmpty()) {
             return false;
