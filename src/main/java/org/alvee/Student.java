@@ -9,4 +9,8 @@ public class Student {
     private List<Course> registeredCourses;
 
     private static int nextId = 1;
+
+    public enum Gender {
+        MALE, FEMALE
+    }
 }
