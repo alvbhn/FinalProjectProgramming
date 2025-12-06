@@ -28,6 +28,7 @@ public class Address {
         if (postalCode == null || postalCode.length() != 6) {
             return false;
         }
+
         for (int i = 0; i < 6; i++) {
             char c = postalCode.charAt(i);
 
@@ -41,6 +42,7 @@ public class Address {
                 }
             }
         }
+
         return true;
     }
 
