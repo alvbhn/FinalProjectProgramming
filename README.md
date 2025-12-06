@@ -9,7 +9,7 @@ https://github.com/alvbhn/FinalProjectProgramming.git
 
 ## Project Documentation
 
-This is the final project for the Introduction to Programming course. It represents a school system by managing 5 classes: Address, Department, Student, Assignment and Course There is also 1 utility class.
+This is the final project for the Introduction to Programming course. It represents a school system by managing 6 classes: Address, Department, Student, Assignment and Course, there is also 1 utility class.
 
 
 
