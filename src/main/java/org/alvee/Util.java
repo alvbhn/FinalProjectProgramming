@@ -1,6 +1,12 @@
 package org.alvee;
 
 public class Util {
+    /**
+     * converts each word in a string to title case
+     * each word are assumed to be separated by space
+     * @param str the string to convert
+     * @return return the converted string to titlecase
+     */
     public static String toTitleCase(String str) {
         if (str == null || str.isEmpty()) {
             return str;
