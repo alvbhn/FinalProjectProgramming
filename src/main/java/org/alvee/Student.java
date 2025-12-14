@@ -27,7 +27,6 @@ public class Student {
         }
 
         registeredCourses.add(course);
-
         course.getRegisteredStudents().add(this);
 
         for (Assignment a : course.getAssignments()) {
@@ -48,7 +47,6 @@ public class Student {
         return true;
     }
 
-
     public Student(String studentName, Gender gender, Address address, Department department) {
         this.studentId = String.format("S%05d", nextId++);
         this.studentName = studentName;
@@ -60,5 +58,17 @@ public class Student {
 
     public String toSimplifiedString() {
         return studentId + " " + studentName + " " + department.getDepartmentName();
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", gender=" + gender +
+                ", address=" + address +
+                ", department=" + department +
+                ", registeredCourses=" + registeredCourses +
+                '}';
     }
 }
