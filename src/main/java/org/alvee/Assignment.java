@@ -2,6 +2,7 @@ package org.alvee;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -48,5 +49,12 @@ public class Assignment {
 
             scores.set(i, score);
         }
+    }
+
+    public Assignment(String assignmentName, double weight) {
+        this.assignmentId = String.format("A%02d", nextId++);
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.scores = new ArrayList<>();
     }
 }
