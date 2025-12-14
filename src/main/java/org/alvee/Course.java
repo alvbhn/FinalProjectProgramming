@@ -26,4 +26,18 @@ public class Course {
         return sum == 100;
     }
 
+    public boolean registerStudent(Student student) {
+        if (student == null || registeredStudents.contains(student)) {
+            return false;
+        }
+
+        registeredStudents.add(student);
+
+        for (Assignment a : assignments) {
+            a.getScores().add(null);
+        }
+
+        return true;
+    }
+
 }
