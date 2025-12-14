@@ -21,12 +21,22 @@ public class Student {
         MALE, FEMALE
     }
 
+    /**
+     * registers a course for the student
+     * adds the course to the student's registered courses list
+     * adds the student to the registered students list
+     * appends null for the scores of each assignment of the course
+     * if the course is null or already registered, return false
+     * @param course the course to register
+     * @return returns true if the course is registered otherwise false
+     */
     public boolean registerCourse(Course course) {
         if (course == null || registeredCourses.contains(course)) {
             return false;
         }
 
         registeredCourses.add(course);
+
         course.getRegisteredStudents().add(this);
 
         for (Assignment a : course.getAssignments()) {
@@ -36,6 +46,14 @@ public class Student {
         return true;
     }
 
+    /**
+     * drops a course for the student
+     * removes the course from the student's registered courses list
+     * removes the student from the course's registered students list
+     * if the course is not registered, return false
+     * @param course the course to drop
+     * @return return true if the course is dropped otherwise false
+     */
     public boolean dropCourse(Course course) {
         if (course == null || !registeredCourses.contains(course)) {
             return false;
@@ -56,6 +74,11 @@ public class Student {
         this.registeredCourses = new ArrayList<>();
     }
 
+    /**
+     * converts a student to a simple string
+     * the string only contains studentId, studentName and departmentName
+     * @return return the simple string
+     */
     public String toSimplifiedString() {
         return studentId + " " + studentName + " " + department.getDepartmentName();
     }
