@@ -24,7 +24,7 @@ public class Department {
             return false;
         }
 
-        for (int i = 0; i <departmentName.length(); i++) {
+        for (int i = 0; i < departmentName.length(); i++) {
             char c = departmentName.charAt(i);
 
             if (c == ' ') {
