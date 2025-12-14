@@ -57,4 +57,13 @@ public class Assignment {
         this.weight = weight;
         this.scores = new ArrayList<>();
     }
+
+    @Override
+    public String toString() {
+        return "Assignment{" +
+                "assignmentId='" + assignmentId + '\'' +
+                ", assignmentName='" + assignmentName + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }
