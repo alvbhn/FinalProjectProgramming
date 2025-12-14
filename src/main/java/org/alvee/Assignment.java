@@ -15,6 +15,10 @@ public class Assignment {
 
     private static int nextId;
 
+    /**
+     * calculates the average score for the assignment
+     * @return return the average score for the assignment and if there are no scores, return 0
+     */
     public double calcAssignmentAvg() {
         if (scores.isEmpty()) {
             return 0;
@@ -28,6 +32,10 @@ public class Assignment {
         return sum / scores.size();
     }
 
+    /**
+     *  generates random scores for all students in an assignment
+     *  based on a random number between 0 and 10
+     */
     public void generateRandomScore() {
         Random random = new Random();
 
