@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+@Getter
 public class Assignment {
     private String assignmentId;
     private String assignmentName;
     private double weight;
-    @Getter
     private List<Integer> scores;
 
     private static int nextId;
