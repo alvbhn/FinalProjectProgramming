@@ -62,6 +62,19 @@ public class Student {
 
     @Override
     public String toString() {
+        String coursesStr = "";
+        for (int i = 0; i < registeredCourses.size(); i++) {
+            Course c = registeredCourses.get(i);
+
+            coursesStr += c.getCourseId() +
+                    " " + c.getCourseName() +
+                    " " + c.getDepartment().getDepartmentName();
+
+            if (i < registeredCourses.size() - 1) {
+                coursesStr += ", ";
+            }
+        }
+
         return "Student{" +
                 "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
