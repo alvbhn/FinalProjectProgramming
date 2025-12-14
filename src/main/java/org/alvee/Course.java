@@ -40,4 +40,22 @@ public class Course {
         return true;
     }
 
+    public int[] calcStudentsAverage() {
+        int[] averages = new int[registeredStudents.size()];
+
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            double total = 0;
+
+            for (Assignment a : assignments) {
+                Integer score = a.getScores().get(i);
+                if (score != null) {
+                    total += score * a.getWeight() / 100;
+                }
+            }
+
+            averages[i] = (int) total;
+        }
+
+        return averages;
+    }
 }
