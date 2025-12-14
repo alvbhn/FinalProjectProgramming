@@ -37,6 +37,17 @@ public class Student {
         return true;
     }
 
+    public boolean dropCourse(Course course) {
+        if (course == null || !registeredCourses.contains(course)) {
+            return false;
+        }
+
+        registeredCourses.remove(course);
+        course.getRegisteredStudents().remove(this);
+
+        return true;
+    }
+
 
     public Student(String studentName, Gender gender, Address address, Department department) {
         this.studentId = String.format("S%05d", nextId++);
