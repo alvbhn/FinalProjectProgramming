@@ -58,4 +58,9 @@ public class Course {
 
         return averages;
     }
+
+    public boolean addAssignment(String assignmentName, double weight) {
+        assignments.add(new Assignment(assignmentName, weight));
+        return true;
+    }
 }
