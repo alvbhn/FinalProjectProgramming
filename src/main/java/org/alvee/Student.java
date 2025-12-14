@@ -25,8 +25,16 @@ public class Student {
         if (course == null || registeredCourses.contains(course)) {
             return false;
         }
+
         registeredCourses.add(course);
+
         course.getRegisteredStudents().add(this);
+
+        for (Assignment a : course.getAssignments()) {
+            a.getScores().add(null);
+        }
+
+        return true;
     }
 
 
@@ -39,4 +47,3 @@ public class Student {
         this.registeredCourses = new ArrayList<>();
     }
 }
-
