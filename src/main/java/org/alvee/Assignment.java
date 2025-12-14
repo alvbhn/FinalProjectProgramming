@@ -12,4 +12,17 @@ public class Assignment {
     private List<Integer> scores;
 
     private static int nextId;
+
+    public double calcAssignmentAvg() {
+        if (scores.isEmpty()) {
+            return 0;
+        }
+
+        int sum = 0;
+        for (Integer s : scores) {
+            sum += s;
+        }
+
+        return sum / scores.size();
+    }
 }
