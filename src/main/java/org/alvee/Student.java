@@ -57,4 +57,8 @@ public class Student {
         this.department = department;
         this.registeredCourses = new ArrayList<>();
     }
+
+    public String toSimplifiedString() {
+        return studentId + " " + studentName + " " + department.getDepartmentName();
+    }
 }
