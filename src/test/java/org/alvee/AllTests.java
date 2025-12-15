@@ -136,4 +136,80 @@ public class AllTests {
 
         assertEquals(expected, actual);
     }
+
+    // Student
+
+    @Test
+    @DisplayName("registerCourse: null course -> false")
+    void testRegisterCourse1() {
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+
+        boolean expected = false;
+        boolean actual = student.registerCourse(null);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("registerCourse: not registered -> true")
+    void testRegisterCourse2() {
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+        Course course = new Course("Programming", 2.5, null);
+
+        boolean expected = true;
+        boolean actual = student.registerCourse(course);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("registerCourse: already registered -> false")
+    void testRegisterCourse3() {
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+        Course course = new Course("Programming", 2.5, null);
+
+        student.registerCourse(course);
+
+        boolean expected = false;
+        boolean actual = student.registerCourse(course);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("dropCourse: null -> false")
+    void testDropCourse1() {
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+
+        boolean expected = false;
+        boolean actual = student.dropCourse(null);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("dropCourse: course not registered -> false")
+    void testDropCourse2() {
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+
+        boolean expected = false;
+        boolean actual = student.dropCourse(null);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("dropCourse: course registered -> false")
+    void testDropCourse3() {
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+        Course course = new Course("Programming", 2.5, null);
+
+        student.dropCourse(course);
+
+        boolean expected = false;
+        boolean actual = student.dropCourse(course);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
