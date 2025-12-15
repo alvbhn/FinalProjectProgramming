@@ -103,7 +103,7 @@ public class Course {
         }
         System.out.printf("%15s%n", "Final Score");
 
-        int[] finalScores = calcStudentsAverage();
+        int[] averages = calcStudentsAverage();
 
         for (int i = 0; i < registeredStudents.size(); i++) {
             Student s = registeredStudents.get(i);
@@ -118,7 +118,7 @@ public class Course {
                 }
             }
 
-            System.out.printf("%15d%n", finalScores[i]);
+            System.out.printf("%15d%n", averages[i]);
         }
 
         System.out.printf("%20s", "Average");
