@@ -87,7 +87,11 @@ public class Course {
             a.generateRandomScore();
         }
 
-        calcStudentsAverage();
+        int[] averages = calcStudentsAverage();
+        finalScores = new ArrayList<>();
+        for (int i = 0; i < averages.length; i++) {
+            finalScores.add(averages[i]);
+        }
     }
 
     public void displayScores() {
