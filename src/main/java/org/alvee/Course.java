@@ -124,13 +124,30 @@ public class Course {
 
     @Override
     public String toString() {
+        String assignmentList = "";
+            for (int i = 0; i < assignments.size(); i++) {
+                assignmentList += assignments.get(i).toString();
+                if (i < assignments.size() - 1) {
+                    assignmentList += ", ";
+                }
+            }
+
+        String studentList = "";
+            for (int i = 0; i < registeredStudents.size(); i++) {
+                studentList += registeredStudents.get(i).toSimplifiedString();
+                if (i < registeredStudents.size() - 1) {
+                    studentList += ", ";
+                }
+            }
+
         return "Course{" +
                 "courseId='" + courseId + '\'' +
                 ", courseName='" + courseName + '\'' +
                 ", credits=" + credits +
-                ", department=" + department +
-                ", assignments=" + assignments +
-                ", registeredStudents=" + registeredStudents +
+                ", department='" + department.getDepartmentName() + '\'' +
+                ", assignments=" + assignmentList +
+                ", registeredStudents=" + studentList +
+                ", assignmentWeightsValid=" + (isAssignmentWeightValid() ? "Yes" : "No") +
                 '}';
     }
 }
