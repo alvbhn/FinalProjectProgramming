@@ -67,7 +67,7 @@ public class Student {
 
     public Student(String studentName, Gender gender, Address address, Department department) {
         this.studentId = String.format("S%05d", nextId++);
-        this.studentName = studentName;
+        this.studentName = util.Util.toTitleCase(studentName);
         this.gender = gender;
         this.address = address;
         this.department = department;
