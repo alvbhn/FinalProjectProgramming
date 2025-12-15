@@ -2,6 +2,7 @@ package org.alvee;
 
 import lombok.*;
 import java.util.List;
+import java.util.SortedMap;
 
 @EqualsAndHashCode
 @Getter
@@ -71,4 +72,51 @@ public class Course {
 
         calcStudentsAverage();
     }
+
+    public void displayScores() {
+        System.out.println("Course: " + courseName + "(" + courseId + ")");
+
+        System.out.printf("%20s", "");
+        for (Assignment a : assignments) {
+            System.out.printf("%15s", a.getAssignmentName());
+        }
+        System.out.printf("%15s%n", "Final Score");
+
+        int[] finalScores = calcStudentsAverage();
+
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            Student s = registeredStudents.get(i);
+            System.out.printf("%20s", s.getStudentName());
+
+            for (Assignment a : assignments) {
+                Integer score = a.getScores().get(i);
+                if (score != null) {
+                    System.out.printf("%15d", score);
+                } else {
+                    System.out.printf("%15s", " ");
+                }
+            }
+
+            System.out.printf("%15d%n", finalScores[i]);
+        }
+
+        System.out.printf("%20s", "Average");
+
+        for (Assignment a : assignments) {
+            int sum = 0;
+            int count = 0;
+
+            for (Integer s : a.getScores()) {
+                if (s != null) {
+                    sum += s;
+                    count++;
+                }
+            }
+
+            int avg = (count == 0) ? 0 : sum / count;
+            System.out.printf("%15d", avg);
+        }
+    }
+
+
 }
