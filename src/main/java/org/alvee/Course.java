@@ -63,7 +63,7 @@ public class Course {
             for (Assignment a : assignments) {
                 Integer score = a.getScores().get(i);
                 if (score != null) {
-                    total += score * a.getWeight() / 100;
+                    total += score * (a.getWeight() / 100);
                 }
             }
             averages[i] = (int) total;
