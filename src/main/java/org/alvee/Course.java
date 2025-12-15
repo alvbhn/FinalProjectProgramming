@@ -20,7 +20,12 @@ public class Course {
     private static int nextId = 1;
 
     public Course(String courseName, double credits, Department department) {
-        this.courseId = String.format("C-%s-%02d", department.getDepartmentId(), nextId++);
+        if (department == null) {
+            this.courseId = null;
+        }else {
+            this.courseId = String.format("C-%s-%02d", department.getDepartmentId(), nextId++);
+        }
+
         this.courseName = courseName;
         this.credits = credits;
         this.department = department;
