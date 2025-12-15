@@ -95,9 +95,7 @@ public class Student {
         for (int i = 0; i < registeredCourses.size(); i++) {
             Course c = registeredCourses.get(i);
 
-            coursesStr += c.getCourseId() +
-                    " " + c.getCourseName() +
-                    " " + c.getDepartment().getDepartmentName();
+            coursesStr += c.getCourseId() + " " + c.getCourseName() + " " + c.getDepartment().getDepartmentName();
 
             if (i < registeredCourses.size() - 1) {
                 coursesStr += ", ";
@@ -110,7 +108,7 @@ public class Student {
                 ", gender=" + gender +
                 ", address=" + address +
                 ", department=" + department +
-                ", registeredCourses=" + registeredCourses +
+                ", registeredCourses=" + coursesStr +
                 '}';
     }
 }
