@@ -83,6 +83,12 @@ public class Student {
         return studentId + " " + studentName + " " + department.getDepartmentName();
     }
 
+    /**
+     * converts a student to a string that contains the studentId, the studentName,
+     * the gender, the address and the department, and the registeredCourses
+     * (only the courseId, the courseName, and the departmentName)
+     * @return return a string representation of the student
+     */
     @Override
     public String toString() {
         String coursesStr = "";
