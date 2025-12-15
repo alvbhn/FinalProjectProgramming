@@ -4,7 +4,6 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
 
 @EqualsAndHashCode
 @Getter
@@ -125,6 +124,7 @@ public class Course {
             int avg = (count == 0) ? 0 : sum / count;
             System.out.printf("%15d", avg);
         }
+        System.out.println();
     }
 
     public String toSimplifiedString() {
