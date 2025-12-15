@@ -30,7 +30,6 @@ public class Course {
 
     public boolean isAssignmentWeightValid() {
         double sum = 0;
-
         for (Assignment a : assignments) {
             sum += a.getWeight();
         }
@@ -64,7 +63,6 @@ public class Course {
                     total += score * a.getWeight() / 100;
                 }
             }
-
             averages[i] = (int) total;
         }
 
