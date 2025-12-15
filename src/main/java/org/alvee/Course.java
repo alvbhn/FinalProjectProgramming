@@ -49,6 +49,8 @@ public class Course {
             a.getScores().add(null);
         }
 
+        finalScores.add(null);
+
         return true;
     }
 
