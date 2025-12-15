@@ -118,5 +118,8 @@ public class Course {
         }
     }
 
+    public String toSimplifiedString() {
+        return courseId + " " + courseName + " " + credits + " " + department.getDepartmentName();
+    }
 
 }
