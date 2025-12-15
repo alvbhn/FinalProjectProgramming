@@ -29,6 +29,10 @@ public class Course {
         this.finalScores = new ArrayList<>();
     }
 
+    /**
+     * checks if the sum of weights of all assignments of that course equals to 100%
+     * @return return true if total weight is 100% otherwise false
+     */
     public boolean isAssignmentWeightValid() {
         double sum = 0;
         for (Assignment a : assignments) {
@@ -38,6 +42,11 @@ public class Course {
         return sum == 100;
     }
 
+    /**
+     * adds a student to the student list of the course
+     * @param student the student to register
+     * @return return true if the student registered otherwise false if already registered or null
+     */
     public boolean registerStudent(Student student) {
         if (student == null || registeredStudents.contains(student)) {
             return false;
@@ -54,6 +63,10 @@ public class Course {
         return true;
     }
 
+    /**
+     * calculates the weighted average score of a student
+     * @return return an array of final weighted scores for students
+     */
     public int[] calcStudentsAverage() {
         int[] averages = new int[registeredStudents.size()];
 
@@ -72,6 +85,12 @@ public class Course {
         return averages;
     }
 
+    /**
+     * adds a new assignment to the course
+     * @param assignmentName the name of the assignment
+     * @param weight the weight of the assignment
+     * @return return true always
+     */
     public boolean addAssignment(String assignmentName, double weight) {
         assignments.add(new Assignment(assignmentName, weight));
 
@@ -82,6 +101,10 @@ public class Course {
         return true;
     }
 
+    /**
+     * generates random scores for each assignment and student,
+     * and calculates the final score for each student
+     */
     public void generateScores() {
         for (Assignment a : assignments) {
             a.generateRandomScore();
@@ -94,6 +117,10 @@ public class Course {
         }
     }
 
+    /**
+     * displays the scores of a course in a table with the assignment averages
+     * and student weighted average
+     */
     public void displayScores() {
         System.out.println("Course: " + courseName + "(" + courseId + ")");
 
@@ -140,10 +167,22 @@ public class Course {
         System.out.println();
     }
 
+    /**
+     * converts a course to a simple string
+     * the string only contains courseId, courseName, credits and departmentName
+     * @return the simple string
+     */
     public String toSimplifiedString() {
         return courseId + " " + courseName + " " + credits + " " + department.getDepartmentName();
     }
 
+    /**
+     * converts a course to a string that contains the courseId, the courseName, the credits,
+     * the departmentName the assignments, the registeredStudents
+     * (only the studentId, the studentName and the departmentName),
+     * and a line to show if the current `isAssignmentWeightValid` is valid or not.
+     * @return return a string representation of the course
+     */
     @Override
     public String toString() {
         String assignmentList = "";
