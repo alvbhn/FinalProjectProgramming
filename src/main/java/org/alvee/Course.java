@@ -70,6 +70,11 @@ public class Course {
 
     public boolean addAssignment(String assignmentName, double weight) {
         assignments.add(new Assignment(assignmentName, weight));
+
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            assignments.get(assignments.size() - 1).getScores().add(null);
+        }
+
         return true;
     }
 
