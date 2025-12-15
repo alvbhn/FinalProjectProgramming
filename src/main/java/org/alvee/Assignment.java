@@ -20,16 +20,21 @@ public class Assignment {
      * @return return the average score for the assignment and if there are no scores, return 0
      */
     public double calcAssignmentAvg() {
-        if (scores.isEmpty()) {
+        int sum = 0;
+        int count = 0;
+
+        for (Integer s : scores) {
+            if (s != null) {
+                sum += s;
+                count++;
+            }
+        }
+
+        if (count == 0) {
             return 0;
         }
 
-        int sum = 0;
-        for (Integer s : scores) {
-            sum += s;
-        }
-
-        return sum / scores.size();
+        return (double) sum / count;
     }
 
     /**
