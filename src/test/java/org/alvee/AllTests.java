@@ -212,4 +212,143 @@ public class AllTests {
         Assertions.assertEquals(expected, actual);
     }
 
+    // Assignment
+
+    @Test
+    @DisplayName("AssignmentWeightValid: sum = 100 -> true")
+    void testIsAssignmentWeightValid1() {
+        Course course = new Course("Programming", 2.0, null);
+        course.addAssignment("Exam", 50);
+        course.addAssignment("Project", 50);
+
+        boolean expected = true;
+        boolean actual = course.isAssignmentWeightValid();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("AssignmentWeightValid: sum != 100 -> false")
+    void testIsAssignmentWeightValid2() {
+        Course course = new Course("Programming", 2.0, null);
+        course.addAssignment("Exam", 40);
+        course.addAssignment("Project", 50);
+
+        boolean expected = false;
+        boolean actual = course.isAssignmentWeightValid();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("registerStudent: not registered -> true")
+    void testRegisterStudent1() {
+        Course course = new Course("Programming", 2.0, null);
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+
+        boolean expected = true;
+        boolean actual = course.registerStudent(student);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("registerStudent: already registered -> false")
+    void testRegisterStudent2() {
+        Course course = new Course("Programming", 2.0, null);
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+
+        course.registerStudent(student);
+
+        boolean expected = false;
+        boolean actual = course.registerStudent(student);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    @DisplayName("calcStudentsAverage: no students -> empty array")
+    void testCalcStudentsAverage1() {
+        Course course = new Course("Programming", 2.0, null);
+
+        int expected = 0;
+        int actual = course.calcStudentsAverage().length;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("calcStudentsAverage: 1 student 1 assignment -> size 1")
+    void testCalcStudentsAverage2() {
+        Course course = new Course("Programming", 2.0, null);
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+
+        course.addAssignment("Exam", 100);
+        course.registerStudent(student);
+        course.getAssignments().get(0).getScores().set(0, 80);
+
+        int expected = 1;
+        int actual = course.calcStudentsAverage().length;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("addAssignment: empty -> size becomes 1")
+    void testAddAssignment1() {
+        Course course = new Course("Programming", 2.0, null);
+
+        course.addAssignment("Exam", 50);
+
+        int expected = 1;
+        int actual = course.getAssignments().size();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("addAssignment: 2 calls -> size becomes 2")
+    void testAddAssignment2() {
+        Course course = new Course("Programming", 2.0, null);
+
+        course.addAssignment("Exam", 50);
+        course.addAssignment("Project", 50);
+
+        int expected = 2;
+        int actual = course.getAssignments().size();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("generateScores: no assignments -> no crash, finalScores size 0")
+    void testGenerateScores1() {
+        Course course = new Course("Programming", 2.0, null);
+
+        course.generateScores();
+
+        int expected = 0;
+        int actual = course.getFinalScores().size();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("generateScores: 1 student 1 assignment -> finalScores size 1")
+    void testGenerateScores2() {
+        Course course = new Course("Programming", 2.0, null);
+        Student student = new Student("Alvee", Student.Gender.MALE, null, null);
+
+        course.addAssignment("Exam", 100);
+        course.registerStudent(student);
+
+        course.generateScores();
+
+        int expected = 1;
+        int actual = course.getFinalScores().size();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
