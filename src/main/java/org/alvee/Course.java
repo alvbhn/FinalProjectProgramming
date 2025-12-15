@@ -26,7 +26,7 @@ public class Course {
             this.courseId = String.format("C-%s-%02d", department.getDepartmentId(), nextId++);
         }
 
-        this.courseName = courseName;
+        this.courseName = util.Util.toTitleCase(courseName);
         this.credits = credits;
         this.department = department;
         this.assignments = new ArrayList<>();
