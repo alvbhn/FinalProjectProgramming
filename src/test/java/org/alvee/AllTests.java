@@ -3,6 +3,8 @@ package org.alvee;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import util.Util;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AllTests {
@@ -351,4 +353,32 @@ public class AllTests {
         Assertions.assertEquals(expected, actual);
     }
 
+    // Util
+
+    @Test
+    @DisplayName("toTitleCase: null -> null")
+    void testToTitleCase1() {
+        String expected = null;
+        String actual = Util.toTitleCase(null);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("toTitleCase: empty -> empty")
+    void testToTitleCase2() {
+        String expected = "";
+        String actual = Util.toTitleCase("");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("toTitleCase: mixed case -> title case")
+    void testToTitleCase3() {
+        String expected = "Programming";
+        String actual = Util.toTitleCase("ProGRAmMiNG");
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
