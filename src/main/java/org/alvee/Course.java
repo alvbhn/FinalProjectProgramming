@@ -15,6 +15,7 @@ public class Course {
     private Department department;
     private List<Assignment> assignments;
     private List<Student> registeredStudents;
+    private List<Integer> finalScores;
 
     private static int nextId = 1;
 
@@ -25,6 +26,7 @@ public class Course {
         this.department = department;
         this.assignments = new ArrayList<>();
         this.registeredStudents = new ArrayList<>();
+        this.finalScores = new ArrayList<>();
     }
 
     public boolean isAssignmentWeightValid() {
